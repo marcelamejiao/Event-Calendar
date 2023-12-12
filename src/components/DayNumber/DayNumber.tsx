@@ -1,8 +1,12 @@
 import CalendarCell from "../CalendarCell/CalendarCell";
 
-const DayNumber = () => {
+interface Props {
+	numberOfDays: number
+}
+
+const DayNumber = ({ numberOfDays }: Props) => {
 	const dayNumberOfWeek: number[] = Array.from(
-		{length: 31},
+		{length: numberOfDays},
 		(_, index) => index + 1
 	);
 
