@@ -1,10 +1,10 @@
+import CalendarHome from "./pages/CalendarHome/CalendarHome";
+
 function App() {
 
   return (
     <>
-      <div className="text-2xl font-bold underline">
-        Events Calendar
-      </div>
+      <CalendarHome />
     </>
   )
 }
