@@ -6,7 +6,11 @@ const DaysOfWeekLabel = () => {
 	return (
 		<div className="flex text-center border-t ">
 			{daysOfWeek.map((day) => (
-				<CalendarCell className="text-sm">{day}</CalendarCell>
+				<CalendarCell 
+					key={day} 
+					className="text-sm">
+					{day}
+				</CalendarCell>
 			))}
 		</div>
 	)

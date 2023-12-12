@@ -9,7 +9,11 @@ const DayNumber = () => {
 	return (
 		<div className="flex flex-wrap text-center w-[35rem]">
 			{dayNumberOfWeek.map((day) => (
-				<CalendarCell className="text-sm border-t">{day}</CalendarCell>
+				<CalendarCell 
+					key={day} 
+					className="text-sm border-t">
+					{day}
+				</CalendarCell>
 			))}
 		</div>
 	)
