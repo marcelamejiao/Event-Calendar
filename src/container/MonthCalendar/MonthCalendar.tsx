@@ -2,7 +2,10 @@ import CalendarHeader from "../../components/CalendarHeader/CalendarHeader";
 
 const MonthCalendar = () => {
 	return (
-		<CalendarHeader />
+		<div className="flex justify-center" >
+			<CalendarHeader />
+		</div>
+		
 	)
 }
 
