@@ -7,7 +7,7 @@ interface Props extends React.PropsWithChildren {
 const CalendarCell: React.FC<Props> = ({className, children}) => {
 
 	return (
-		<div className={clsx("w-[100px] border p-2",className)}>
+		<div className={clsx("w-[5rem] border-l p-2",className)}>
 			{children}
 		</div>
 	)
