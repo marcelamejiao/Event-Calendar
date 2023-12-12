@@ -2,7 +2,9 @@ function App() {
 
   return (
     <>
-      Events Calendar
+      <div className="text-3xl font-bold underline">
+        Events Calendar
+      </div>
     </>
   )
 }
