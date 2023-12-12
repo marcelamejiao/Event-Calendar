@@ -5,7 +5,7 @@ import DaysOfWeekLabel from "../../components/DaysOfWeekLabel/DaysOfWeekLabel";
 import { useState } from "react";
 
 const MonthCalendar = () => {
-	const [currentDate, setCurrentDate] = useState(new Date("2023-02-01"));
+	const [currentDate, setCurrentDate] = useState(new Date);
 	const startDate = startOfMonth(currentDate);
 	const endDate = endOfMonth(currentDate);
 	const numberOfDays = differenceInDays(endDate, startDate) + 1;
