@@ -4,7 +4,7 @@ const DaysOfWeekLabel = () => {
 	const daysOfWeek: string[] = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
 	return (
-		<div className="flex text-center border-t border-r ">
+		<div className="flex text-center border-t ">
 			{daysOfWeek.map((day) => (
 				<CalendarCell className="text-sm">{day}</CalendarCell>
 			))}
