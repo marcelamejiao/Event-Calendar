@@ -5,16 +5,20 @@ import DaysOfWeekLabel from "../../components/DaysOfWeekLabel/DaysOfWeekLabel";
 import { useState } from "react";
 
 const MonthCalendar = () => {
-	const [currentDate, setCurrentDate] = useState(new Date);
+	const [currentDate, setCurrentDate] = useState(new Date("2023-02-01"));
 	const startDate = startOfMonth(currentDate);
 	const endDate = endOfMonth(currentDate);
 	const numberOfDays = differenceInDays(endDate, startDate) + 1;
+	const initialPositionOfDay = startDate.getDay();
 
 	return (
 		<div className="flex justify-center items-center flex-col" >
 			<CalendarHeader />
 			<DaysOfWeekLabel />
-			<DayNumber numberOfDays={numberOfDays}/>
+			<DayNumber 
+				numberOfDays={numberOfDays}
+				initialPositionOfDay={initialPositionOfDay}
+			/>
 		</div>
 		
 	)
