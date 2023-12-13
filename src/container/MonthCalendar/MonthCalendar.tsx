@@ -6,14 +6,19 @@ import { useState } from "react";
 
 const MonthCalendar = () => {
 	const [currentDate, setCurrentDate] = useState(new Date);
+
 	const startDate = startOfMonth(currentDate);
 	const endDate = endOfMonth(currentDate);
 	const numberOfDays = differenceInDays(endDate, startDate) + 1;
 	const initialPositionOfDay = startDate.getDay();
 
+
 	return (
 		<div className="flex justify-center items-center flex-col" >
-			<CalendarHeader />
+			<CalendarHeader 
+					currentDate={currentDate} 
+					setCurrentDate={setCurrentDate}
+			/>
 			<DaysOfWeekLabel />
 			<DayNumber 
 				numberOfDays={numberOfDays}
