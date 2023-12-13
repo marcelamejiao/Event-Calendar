@@ -1,7 +1,7 @@
 import CalendarCell from "../CalendarCell/CalendarCell";
 
 const DaysOfWeekLabel = () => {
-	const daysOfWeek: string[] = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+	const daysOfWeek: string[] = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 	return (
 		<div className="flex text-center border-t ">

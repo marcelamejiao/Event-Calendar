@@ -10,9 +10,10 @@ const DayNumber = ({ numberOfDays, initialPositionOfDay }: Props) => {
 		{length: numberOfDays},
 		(_, index) => index + 1
 	);
-
+	
+	// where in the week the day is positionated 
 	const positionOfDayWeek: number[] = Array.from(
-		{length: initialPositionOfDay - 1},
+		{length: initialPositionOfDay},
 		(_, index) => index
 	);
 
