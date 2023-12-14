@@ -8,7 +8,7 @@ const DaysOfWeekLabel = () => {
 			{daysOfWeek.map((day) => (
 				<CalendarCell 
 					key={day} 
-					className="text-sm">
+					className="text-sm w-[5rem] p-2">
 					{day}
 				</CalendarCell>
 			))}

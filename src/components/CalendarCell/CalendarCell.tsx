@@ -6,9 +6,14 @@ interface Props extends React.PropsWithChildren {
 }
 
 const CalendarCell: React.FC<Props> = ({onClick, className, children}) => {
-
 	return (
-		<div onClick={onClick} className={clsx("w-[5rem] p-2",className)}>
+		<div 
+			onClick={onClick} 
+			className={clsx(
+				className ? className : "w-[5rem] p-2",
+				{"cursor-pointer bg-gray-100 hover:bg-gray-200 active:bg-gray-300 ": !!onClick},
+			)}
+		>
 			{children}
 		</div>
 	)

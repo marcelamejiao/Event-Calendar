@@ -22,7 +22,7 @@ const DayNumber = ({ numberOfDays, initialPositionOfDay }: Props) => {
 			{positionOfDayWeek.map((day) => (
 				<CalendarCell 
 					key={day} 
-					className="text-sm border-t">
+					className="text-sm border-t w-[5rem] p-2">
 					{}
 				</CalendarCell>
 			))}
@@ -30,7 +30,7 @@ const DayNumber = ({ numberOfDays, initialPositionOfDay }: Props) => {
 			{dayNumberOfWeek.map((day) => (
 				<CalendarCell 
 					key={day} 
-					className="text-sm border-t">
+					className="text-sm border-t w-[5rem] p-2">
 					{day}
 				</CalendarCell>
 			))}
