@@ -4,7 +4,7 @@ const CalendarHome = () => {
 
 	return (
 		<>
-			<div className="text-2xl font-bold">
+			<div className="text-2xl font-bold text-center p-2 text-sky-500">
 			Events Calendar
 			</div>
 			<MonthCalendar />

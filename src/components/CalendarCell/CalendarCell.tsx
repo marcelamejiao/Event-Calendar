@@ -11,7 +11,7 @@ const CalendarCell: React.FC<Props> = ({onClick, className, children}) => {
 			onClick={onClick} 
 			className={clsx(
 				className ? className : "w-[5rem] p-2",
-				{"cursor-pointer bg-gray-100 hover:bg-gray-200 active:bg-gray-300 ": !!onClick},
+				{"cursor-pointer bg-sky-50 hover:bg-gray-100 active:bg-gray-300 ": !!onClick},
 			)}
 		>
 			{children}
