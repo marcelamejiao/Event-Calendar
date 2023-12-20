@@ -45,12 +45,13 @@ npm run dev
 * React
 * Typescript
 * Tailwind
+* Date-fns
 
 ## **Preview**
 
 * **Calendar**
 
-![calendar]()
+![calendar](./assets/img/calendar.png)
 
 
 ## **Deployed link**
@@ -60,7 +61,7 @@ npm run dev
 ## **Future Development**
 
 * This project is the base of two following projects where the fronted and backend implementation were be develop.
-* The styling will be update once the folowwing projects are finished.
+* The styling will be update once the following projects are finished.
 
 ## **Questions**
 
