@@ -35,7 +35,7 @@ export const deleteEvent = async (id) => {
 };
 
 export const updateEvent = async (id, data) => {
-    const response =  await fetch(`${apiHost}/events/${id}`, {
+    const response = await fetch(`${apiHost}/events/${id}`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json",

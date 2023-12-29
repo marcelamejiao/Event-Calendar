@@ -1,22 +1,21 @@
 # Events Calendar
 
+## **Table of Contents**
 
-## **Table of Contents** 
-
-  - [**Table of Contents**](#table-of-contents)
-  - [**Description**](#description)
-  - [**My experience**](#my-experience)
-  - [**Usage**](#usage)
-  - [**Technologies Used**](#technologies-used)
-  - [**Preview**](#preview)
-  - [**Deployed link**](#deployed-link)
-  - [**Future Development**](#future-development)
-  - [**Questions**](#questions)
-
+- [**Table of Contents**](#table-of-contents)
+- [**Description**](#description)
+- [**My experience**](#my-experience)
+- [**Usage**](#usage)
+- [**Technologies Used**](#technologies-used)
+- [**Preview**](#preview)
+- [**Deployed link**](#deployed-link)
+- [**Future Development**](#future-development)
+- [**Questions**](#questions)
 
 ## **Description**
 
-This project was designed to create a web application where a calendar is displayed showing the current month and a grid of days.
+This project was designed to create a web application where a calendar is displayed showing the current month and a grid
+of days.
 
 * Each of the days cells is clickable.
 * When a user click on a chosen day, a modal appears (empty for now).
@@ -27,12 +26,15 @@ This application consists of a React Typescript frontend.
 
 ## **My experience**
 
-This was the first time that I used the date utility library date-fns. I found this library easy to understand and very useful to implement functions and be able to get specific dates. 
+This was the first time that I used the date utility library date-fns. I found this library easy to understand and very
+useful to implement functions and be able to get specific dates.
 
-Writing code with TS still a bit challenging but it is definitely better than the firts time, it has been a process of reading and practice. 
+Writing code with TS still a bit challenging but it is definitely better than the firts time, it has been a process of
+reading and practice.
 
-This was also the first time that I used Tailwind for styling in a personal project and I found Tailwind a great source to style an application, as it can summarize  multiple lines of code and also it was very easy to find its documentation and implement it.
-
+This was also the first time that I used Tailwind for styling in a personal project and I found Tailwind a great source
+to style an application, as it can summarize multiple lines of code and also it was very easy to find its documentation
+and implement it.
 
 ## **Usage**
 
@@ -52,7 +54,6 @@ npm run dev
 * **Calendar**
 
 ![calendar](./assets/img/calendar.png)
-
 
 ## **Deployed link**
 
