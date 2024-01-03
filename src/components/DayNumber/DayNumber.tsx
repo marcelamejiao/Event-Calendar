@@ -1,6 +1,5 @@
-import {useState} from "react";
 import CalendarCell from "../CalendarCell/CalendarCell";
-import {Modal} from "../Modal/Modal";
+import EventCard from "../EventCard/EventCard";
 
 interface Props {
   numberOfDays: number;
@@ -8,7 +7,6 @@ interface Props {
 }
 
 const DayNumber = ({numberOfDays, initialPositionOfDay}: Props) => {
-  const [showModal, setShowModal] = useState(false);
 
   const dayNumberOfWeek: number[] = Array.from(
     {length: numberOfDays},
@@ -33,18 +31,16 @@ const DayNumber = ({numberOfDays, initialPositionOfDay}: Props) => {
 
       {dayNumberOfWeek.map((day) => (
         <CalendarCell
-          onClick={() => setShowModal(true)}
           key={day}
           className="text-sm border-t w-[5rem] p-2">
-          {day}
+            <div>
+              {day}
+            </div>
+            <EventCard />
         </CalendarCell>
       ))}
-      {showModal && (
-        <Modal
-          setShowModal={() => setShowModal(false)}
-        />
-      )}
 
+      
     </div>
   )
 }
