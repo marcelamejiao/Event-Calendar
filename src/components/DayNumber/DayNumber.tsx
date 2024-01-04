@@ -1,12 +1,16 @@
+import { useState } from "react";
 import CalendarCell from "../CalendarCell/CalendarCell";
 import EventCard from "../EventCard/EventCard";
+import {Modal} from "../Modal/Modal";
 
 interface Props {
   numberOfDays: number;
   initialPositionOfDay: number;
+  currentDate: Date;
 }
 
-const DayNumber = ({numberOfDays, initialPositionOfDay}: Props) => {
+const DayNumber = ({numberOfDays, initialPositionOfDay, currentDate}: Props) => {
+  const [showDayModal, setShowDayModal] = useState(0);
 
   const dayNumberOfWeek: number[] = Array.from(
     {length: numberOfDays},
@@ -35,12 +39,19 @@ const DayNumber = ({numberOfDays, initialPositionOfDay}: Props) => {
           className="text-sm border-t w-[5rem] p-2">
             <div>
               {day}
+              <button onClick={() => setShowDayModal(day)}>+</button>
             </div>
             <EventCard />
         </CalendarCell>
       ))}
 
-      
+      {showDayModal !== 0 && (
+        <Modal
+          day={showDayModal}
+          setHideModal={() => setShowDayModal(0)}
+          currentDate={currentDate}
+        />
+      )}
     </div>
   )
 }

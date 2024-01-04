@@ -3,7 +3,9 @@ import {useForm, SubmitHandler} from "react-hook-form";
 import {createEvent} from "../../services/events";
 
 type IFormProps = {
-  setShowModal(showModal: boolean): void,
+  setHideModal(showModal: boolean): void,
+  currentDate: Date,
+  day: number,
 };
 
 type IFormValues = {
@@ -14,14 +16,15 @@ type IFormValues = {
   label: string
 };
 
-export default function AddEventForm({setShowModal}: IFormProps) {
+export default function AddEventForm({ setHideModal, currentDate, day }: IFormProps) {
   const [error, setError] = useState(false);
+
   const {
     register,
     handleSubmit,
     formState: {errors},
   } = useForm<IFormValues>()
-
+   
   const onSubmit: SubmitHandler<IFormValues> = async (data, e) => {
     e.preventDefault();
     try {
@@ -29,28 +32,37 @@ export default function AddEventForm({setShowModal}: IFormProps) {
         setError(false);
       }
 
+      // Get the actual date yyyy/mm/dd
+      const actualYear = currentDate.getFullYear();
+      const actualMonth = currentDate.getMonth();
+
       // Get the start date
       const startEventDate = new Date();
       startEventDate.setHours(Number(data.startDate.split(":")[0]));
       startEventDate.setMinutes(Number(data.startDate.split(":")[1]));
+      startEventDate.setFullYear(actualYear);
+      startEventDate.setMonth(actualMonth);
+      startEventDate.setDate(day);
 
       // Get the end date
       const endEventDate = new Date();
       endEventDate.setHours(Number(data.endDate.split(":")[0]));
       endEventDate.setMinutes(Number(data.endDate.split(":")[1]));
+      endEventDate.setFullYear(actualYear);
+      endEventDate.setMonth(actualMonth);
+      endEventDate.setDate(day);
 
       // Convert time format to JSON format
       const eventData = {...data};
       eventData.startDate = startEventDate.toJSON();
       eventData.endDate = endEventDate.toJSON();
-
+      
       await createEvent(eventData);
-      setShowModal(false);
+      setHideModal(false);
     } catch (e) {
       setError(true);
     }
   };
-
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

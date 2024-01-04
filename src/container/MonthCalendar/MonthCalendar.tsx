@@ -23,6 +23,7 @@ const MonthCalendar = () => {
       <DayNumber
         numberOfDays={numberOfDays}
         initialPositionOfDay={initialPositionOfDay}
+        currentDate={currentDate}
       />
     </div>
 
