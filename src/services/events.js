@@ -61,3 +61,11 @@ export const getEventsByLocation = async (location) => {
     }));
     return await response.json();
 };
+
+export const getEventsByDate = async (startDate, endDate) => {
+    const response = await fetch(`${apiHost}/events/by-date?` + new URLSearchParams({
+        startDate: startDate,
+        endDate: endDate,
+    }));
+    return await response.json();
+};
