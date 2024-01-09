@@ -1,16 +1,30 @@
 import { IFormValues } from "../components/AddEventForm/AddEventForm";
-import CalendarEvent from "../models/event";
+import CalendarEvent, { CalendarEventJson } from "../models/event";
 
 const apiHost = import.meta.env.VITE_API_HOST ?? 'http://localhost:8080';
 
 export const getAllEvents = async (): Promise<CalendarEvent[]> => {
     const response = await fetch(`${apiHost}/events`);
-    return await response.json();
+    const eventsJson = await response.json();
+
+    return eventsJson.map((eventJson: CalendarEventJson) => {
+        return {
+            ...eventJson,
+            startDate: new Date(eventJson.startDate),
+            endDate: new Date(eventJson.endDate),
+        }
+    });
 };
 
 export const getEventsById = async (id: number): Promise<CalendarEvent> => {
     const response = await fetch(`${apiHost}/events/${id}`);
-    return await response.json();
+    const eventJson: CalendarEventJson = await response.json();
+
+    return {
+        ...eventJson,
+        startDate: new Date(eventJson.startDate),
+        endDate: new Date(eventJson.endDate),
+    }
 };
 
 export const createEvent = async (data: IFormValues) => {
@@ -55,14 +69,30 @@ export const getEventsByLabel = async (label: string): Promise<CalendarEvent[]> 
     const response = await fetch(`${apiHost}/events/label?` + new URLSearchParams({
         label: label,
     }));
-    return await response.json();
+    const eventsJson = await response.json();
+
+    return eventsJson.map((eventJson: CalendarEventJson) => {
+        return {
+            ...eventJson,
+            startDate: new Date(eventJson.startDate),
+            endDate: new Date(eventJson.endDate),
+        }
+    });
 };
 
 export const getEventsByLocation = async (location: string): Promise<CalendarEvent[]> => {
     const response = await fetch(`${apiHost}/events/location?` + new URLSearchParams({
         location: location,
     }));
-    return await response.json();
+    const eventsJson = await response.json();
+
+    return eventsJson.map((eventJson: CalendarEventJson) => {
+        return {
+            ...eventJson,
+            startDate: new Date(eventJson.startDate),
+            endDate: new Date(eventJson.endDate),
+        }
+    });
 };
 
 export const getEventsByDate = async (startDate: string, endDate: string): Promise<CalendarEvent[]> => {
@@ -70,5 +100,13 @@ export const getEventsByDate = async (startDate: string, endDate: string): Promi
         startDate: startDate,
         endDate: endDate,
     }));
-    return await response.json();
+    const eventsJson = await response.json();
+
+    return eventsJson.map((eventJson: CalendarEventJson) => {
+        return {
+            ...eventJson,
+            startDate: new Date(eventJson.startDate),
+            endDate: new Date(eventJson.endDate),
+        }
+    });
 };
