@@ -28,7 +28,7 @@ const DayNumber = ({ numberOfDays, initialPositionOfDay, currentDate, events }: 
   // Get the events of each day of the month
   const getEventsByDay = (day: number): CalendarEvent[] => {
     return events.filter((event) => {
-      return event.startDate.getDay() === day
+      return event.startDate.getDate() === day
     })
   }
 
@@ -50,9 +50,11 @@ const DayNumber = ({ numberOfDays, initialPositionOfDay, currentDate, events }: 
               {day}
               <button onClick={() => setShowDayModal(day)}>+</button>
             </div>
-            <EventTag
-              event={event}
-            />
+            {getEventsByDay(day).map((event) => (
+                <EventTag
+                event={event}
+              />
+            ))}
         </CalendarCell>
       ))}
 

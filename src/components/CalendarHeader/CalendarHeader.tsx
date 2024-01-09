@@ -4,24 +4,30 @@ import CalendarCell from "../CalendarCell/CalendarCell";
 interface Props {
   currentDate: Date;
   setCurrentDate: (currentDate: Date) => void;
+  setAdded: (added: number) => void;
+  added: number;
 }
 
-const CalendarHeader = ({currentDate, setCurrentDate}: Props) => {
+const CalendarHeader = ({currentDate, setCurrentDate, setAdded, added}: Props) => {
 
   const previousMonth = () => {
     setCurrentDate && setCurrentDate(sub(currentDate, {months: 1}));
+    setAdded(added + 1);
   }
 
   const nextMonth = () => {
     setCurrentDate && setCurrentDate(add(currentDate, {months: 1}));
+    setAdded(added + 1);
   }
 
   const previousYear = () => {
     setCurrentDate && setCurrentDate(sub(currentDate, {years: 1}));
+    setAdded(added + 1);
   }
 
   const nextYear = () => {
     setCurrentDate && setCurrentDate(add(currentDate, {years: 1}));
+    setAdded(added + 1);
   }
 
   return (

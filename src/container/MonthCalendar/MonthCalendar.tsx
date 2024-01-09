@@ -30,6 +30,8 @@ const MonthCalendar = () => {
       <CalendarHeader
         currentDate={currentDate}
         setCurrentDate={setCurrentDate}
+        setAdded={setAdded}
+        added={added}
       />
       <DaysOfWeekLabel/>
       <DayNumber
