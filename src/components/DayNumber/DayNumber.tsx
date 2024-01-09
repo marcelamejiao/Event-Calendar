@@ -1,15 +1,17 @@
 import { useState } from "react";
 import CalendarCell from "../CalendarCell/CalendarCell";
-import EventCard from "../EventCard/EventCard";
+import EventTag from "../EventTag/EventTag";
 import {Modal} from "../Modal/Modal";
+import CalendarEvent from "../../models/event";
 
 interface Props {
   numberOfDays: number;
   initialPositionOfDay: number;
   currentDate: Date;
+  events: CalendarEvent[];
 }
 
-const DayNumber = ({numberOfDays, initialPositionOfDay, currentDate}: Props) => {
+const DayNumber = ({ numberOfDays, initialPositionOfDay, currentDate, events }: Props) => {
   const [showDayModal, setShowDayModal] = useState(0);
 
   const dayNumberOfWeek: number[] = Array.from(
@@ -22,6 +24,13 @@ const DayNumber = ({numberOfDays, initialPositionOfDay, currentDate}: Props) => 
     {length: initialPositionOfDay},
     (_, index) => index
   );
+
+  // Get the events of each day of the month
+  const getEventsByDay = (day: number): CalendarEvent[] => {
+    return events.filter((event) => {
+      return event.startDate.getDay() === day
+    })
+  }
 
   return (
     <div className="flex flex-wrap text-center w-[35rem]">
@@ -41,7 +50,9 @@ const DayNumber = ({numberOfDays, initialPositionOfDay, currentDate}: Props) => 
               {day}
               <button onClick={() => setShowDayModal(day)}>+</button>
             </div>
-            <EventCard />
+            <EventTag
+              event={event}
+            />
         </CalendarCell>
       ))}
 
