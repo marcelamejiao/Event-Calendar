@@ -8,7 +8,7 @@ type IFormProps = {
   day: number,
 };
 
-type IFormValues = {
+export type IFormValues = {
   eventName: string
   startDate: string
   endDate: string
