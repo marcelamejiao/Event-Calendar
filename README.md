@@ -57,7 +57,7 @@ npm run dev
 
 ## **Deployed link**
 
-💡 Live version: [To be deployed!]()
+💡 Live version: [Click here!](https://events-calendar.apps.marcelamejia.xyz/)
 
 ## **Future Development**
 
