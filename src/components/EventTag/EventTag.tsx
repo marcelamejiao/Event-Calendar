@@ -7,8 +7,8 @@ type Props = {
 const EventTag = ({ event }: Props) => {
     
     return (
-        <div className="bg-sky-50">
-            <p>Name: {event.eventName}</p>
+        <div className="bg-teal-500 rounded-sm text-xs text-white mt-1">
+            <p>{event.eventName}</p>
         </div>
     )
 }

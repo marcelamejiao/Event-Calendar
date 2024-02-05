@@ -31,10 +31,10 @@ const CalendarHeader = ({currentDate, setCurrentDate, setAdded, added}: Props) =
   }
 
   return (
-    <div className="border-t flex justify-center text-center items-center">
+    <div className="flex justify-center text-center items-center text-white border-dashed border border-white">
       <CalendarCell onClick={previousYear}>{"<<"}</CalendarCell>
       <CalendarCell onClick={previousMonth}>{"<"}</CalendarCell>
-      <CalendarCell className="w-[30rem] p-2 text-lg">{format(currentDate, 'LLLL yyyy')}</CalendarCell>
+      <CalendarCell className="w-[30rem] p-2 text-xl">{format(currentDate, 'LLLL yyyy')}</CalendarCell>
       <CalendarCell onClick={nextMonth}>{">"}</CalendarCell>
       <CalendarCell onClick={nextYear}>{">>"}</CalendarCell>
     </div>

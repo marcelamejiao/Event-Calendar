@@ -74,7 +74,7 @@ export default function AddEventForm({ setHideModal, currentDate, day }: IFormPr
             {required: true})}
           aria-invalid={errors.eventName ? "true" : "false"}
           placeholder="Event name"
-          className="text-xl text-sky-500  bg-zinc-50 py-2 border-0 outline-none border-solid border-b border-gray-400 hover:border-b-2"
+          className="text-xl text-teal-500 bg-zinc-50 py-2 border-0 outline-none border-solid border-b border-gray-400 hover:border-b-2"
         />
         {errors.eventName?.type === "required" && (
           <p role="alert" className="text-red-500">Event name is required</p>
@@ -105,7 +105,7 @@ export default function AddEventForm({ setHideModal, currentDate, day }: IFormPr
         )}
       </div>
       <div className="my-6">
-        <label><FontAwesomeIcon icon={faLocationDot}  className="px-2 text-sky-500"/></label>
+        <label><FontAwesomeIcon icon={faLocationDot}  className="px-2 text-teal-500"/></label>
         <input
           {...register("location",
             {required: true})}
@@ -117,7 +117,7 @@ export default function AddEventForm({ setHideModal, currentDate, day }: IFormPr
         )}
       </div>
       <div className="my-6">
-        <label><FontAwesomeIcon icon={faTag} className="px-2 text-sky-500"/></label>
+        <label><FontAwesomeIcon icon={faTag} className="px-2 text-teal-500"/></label>
         <input
           {...register("label",
             {required: true})}
