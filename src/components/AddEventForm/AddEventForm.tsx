@@ -1,6 +1,8 @@
 import {useState} from "react";
 import {useForm, SubmitHandler} from "react-hook-form";
 import {createEvent} from "../../services/events";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLocationDot, faTag }from '@fortawesome/free-solid-svg-icons';
 
 type IFormProps = {
   setHideModal(showModal: boolean): void,
@@ -66,22 +68,20 @@ export default function AddEventForm({ setHideModal, currentDate, day }: IFormPr
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <h2>Create a new event</h2>
-      <div>
-        <label>Event's name:</label>
+      <div className="mb-6">
         <input
           {...register("eventName",
             {required: true})}
           aria-invalid={errors.eventName ? "true" : "false"}
+          placeholder="Event name"
+          className="text-xl text-sky-500  bg-zinc-50 py-2 border-0 outline-none border-solid border-b border-gray-400 hover:border-b-2"
         />
         {errors.eventName?.type === "required" && (
-          <p
-            role="alert">Event name is required
-          </p>
+          <p role="alert" className="text-red-500">Event name is required</p>
         )}
       </div>
-      <div>
-        <label>Start time:</label>
+      <div className="m-4">
+        <label className="p-2">Start time:</label>
         <input
           type="time"
           {...register("startDate",
@@ -89,13 +89,11 @@ export default function AddEventForm({ setHideModal, currentDate, day }: IFormPr
           aria-invalid={errors.startDate ? "true" : "false"}
         />
         {errors.startDate?.type === "required" && (
-          <p
-            role="alert">Initial hour is required
-          </p>
+          <p role="alert" className="text-red-500">Initial hour is required </p>
         )}
       </div>
-      <div>
-        <label>End time:</label>
+      <div className="m-4">
+        <label className="p-2">End time:</label>
         <input
           type="time"
           {...register("endDate",
@@ -103,41 +101,38 @@ export default function AddEventForm({ setHideModal, currentDate, day }: IFormPr
           aria-invalid={errors.endDate ? "true" : "false"}
         />
         {errors.endDate?.type === "required" && (
-          <p
-            role="alert">End hour is required
-          </p>
+          <p role="alert" className="text-red-500">End hour is required</p>
         )}
       </div>
-      <div>
-        <label>Location:</label>
+      <div className="my-6">
+        <label><FontAwesomeIcon icon={faLocationDot}  className="px-2 text-sky-500"/></label>
         <input
           {...register("location",
             {required: true})}
           aria-invalid={errors.location ? "true" : "false"}
+          placeholder="Location"
         />
         {errors.location?.type === "required" && (
-          <p
-            role="alert">Location is required
-          </p>
+          <p role="alert" className="text-red-500">Location is required</p>
         )}
       </div>
-      <div>
-        <label>Label:</label>
+      <div className="my-6">
+        <label><FontAwesomeIcon icon={faTag} className="px-2 text-sky-500"/></label>
         <input
           {...register("label",
             {required: true})}
           aria-invalid={errors.label ? "true" : "false"}
+          placeholder="Label"
         />
         {errors.label?.type === "required" && (
-          <p
-            role="alert">Label is required
-          </p>
+          <p role="alert" className="text-red-500">Label is required </p>
         )}
       </div>
-      <div>
+      <div className="mt-8">
         <input
           type="submit"
           value="Save"
+          className="cursor-pointer hover:bg-zinc-800 bg-zinc-600 text-neutral-50 py-2.5 px-5 rounded-md"
         />
       </div>
     </form>

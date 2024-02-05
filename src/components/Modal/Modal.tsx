@@ -8,10 +8,10 @@ type modalProps = {
 
 export const Modal = ({ setHideModal, currentDate, day }: modalProps) => {
   return (
-    <div className="inset-0 fixed bg-gray-100 opacity-80 z-10 flex justify-center items-center overflow-y-hidden">
-      <div className="w-50 flex flex-col bg-neutral-50 items-center justify-center p-5 ">
+    <div className="inset-0 fixed bg-gray-100 opacity-95 z-10 flex justify-center items-center overflow-y-hidden">
+      <div className="rounded-md flex flex-col drop-shadow-lg opacity-100 bg-zinc-50 items-center justify-center p-14">
         <div>
-          <button onClick={setHideModal}>x</button>
+          <button className="rounded-full py-2 px-4 mb-8 bg-zinc-600 hover:bg-zinc-800 text-neutral-50"onClick={setHideModal}>x</button>
         </div>
         <AddEventForm
           setHideModal={setHideModal}
