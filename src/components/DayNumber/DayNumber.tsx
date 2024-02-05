@@ -37,7 +37,7 @@ const DayNumber = ({ numberOfDays, initialPositionOfDay, currentDate, events }: 
       {positionOfDayWeek.map((day) => (
         <CalendarCell
           key={day}
-          className="text-sm border-r border-b w-[10rem] h-[5rem] p-2 bg-slate-50">
+          className="text-sm border-r border-b w-[10rem] h-[5rem] p-2 bg-slate-100">
           {}
         </CalendarCell>
       ))}
@@ -45,7 +45,7 @@ const DayNumber = ({ numberOfDays, initialPositionOfDay, currentDate, events }: 
       {dayNumberOfWeek.map((day) => (
         <CalendarCell
           key={day}
-          className="text-sm border-r border-b w-[10rem] h-[5rem] p-2">
+          className="text-sm border-r border-b w-[10rem] h-[5rem] p-2  bg-neutral-50">
             <div>
               {day}
               <button className="rounded-full py-0 px-2 mx-2 bg-zinc-600 hover:bg-zinc-800 text-neutral-50"
