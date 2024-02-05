@@ -41,6 +41,10 @@ and implement it.
 ## **Usage**
 
 ```
+npm install 
+```
+
+```
 npm run dev 
 ```
 
@@ -55,7 +59,11 @@ npm run dev
 
 * **Calendar**
 
-![calendar](./assets/img/calendar.png)
+![calendar](./assets/img/calendar-desktop.png)
+
+* **Modal**
+
+![calendar](./assets/img/modal-desktop.png)
 
 ## **Deployed link**
 
@@ -63,8 +71,10 @@ npm run dev
 
 ## **Future Development**
 
-* This project is the base of two following projects where the fronted and backend implementation were be develop.
-* The styling will be update once the following projects are finished.
+* DONE: This project is the base of two following projects where the fronted and backend implementation were be develop.
+* DONE: The styling will be update once the following projects are finished.
+* Mobile view.
+* Filter by Label.
 
 ## **Questions**
 
