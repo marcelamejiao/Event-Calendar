@@ -33,11 +33,11 @@ const DayNumber = ({ numberOfDays, initialPositionOfDay, currentDate, events }: 
   }
 
   return (
-    <div className="flex flex-wrap text-center w-[35rem]">
+    <div className="border-t border-l flex flex-wrap text-center w-[70.063rem]">
       {positionOfDayWeek.map((day) => (
         <CalendarCell
           key={day}
-          className="text-sm border-t w-[5rem] p-2">
+          className="text-sm border-r border-b w-[10rem] h-[5rem] p-2 bg-slate-50">
           {}
         </CalendarCell>
       ))}
@@ -45,10 +45,11 @@ const DayNumber = ({ numberOfDays, initialPositionOfDay, currentDate, events }: 
       {dayNumberOfWeek.map((day) => (
         <CalendarCell
           key={day}
-          className="text-sm border-t w-[5rem] p-2">
+          className="text-sm border-r border-b w-[10rem] h-[5rem] p-2">
             <div>
               {day}
-              <button onClick={() => setShowDayModal(day)}>+</button>
+              <button className="rounded-full py-0 px-2 mx-2 bg-zinc-600 hover:bg-zinc-800 text-neutral-50"
+              onClick={() => setShowDayModal(day)}>+</button>
             </div>
             {getEventsByDay(day).map((event) => (
                 <EventTag
