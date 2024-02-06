@@ -8,7 +8,7 @@ import CalendarEvent from "../../models/event";
 
 const MonthCalendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date);
-
+  
   const startDate = startOfMonth(currentDate);
   const endDate = endOfMonth(currentDate);
   const numberOfDays = differenceInDays(endDate, startDate) + 1;
@@ -39,6 +39,8 @@ const MonthCalendar = () => {
         initialPositionOfDay={initialPositionOfDay}
         currentDate={currentDate}
         events={events}
+        setAdded={setAdded}
+        added={added}
       />
     </div>
 

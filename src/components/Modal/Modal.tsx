@@ -4,9 +4,11 @@ type modalProps = {
   setHideModal(): void,
   currentDate: Date,
   day: number;
+  setAdded: (added: number) => void;
+  added: number;
 };
 
-export const Modal = ({ setHideModal, currentDate, day }: modalProps) => {
+export const Modal = ({ setHideModal, currentDate, day, setAdded, added }: modalProps) => {
   return (
     <div className="inset-0 fixed bg-gradient-to-br from-gray-900 z-10 flex justify-center items-center overflow-y-hidden">
       <div className="rounded-md flex flex-col drop-shadow-lg bg-zinc-50 items-center justify-center p-14">
@@ -17,6 +19,8 @@ export const Modal = ({ setHideModal, currentDate, day }: modalProps) => {
           setHideModal={setHideModal}
           currentDate={currentDate}
           day={day}
+          setAdded={setAdded}
+          added={added}
         />
       </div>
     </div>

@@ -9,9 +9,11 @@ interface Props {
   initialPositionOfDay: number;
   currentDate: Date;
   events: CalendarEvent[];
+  setAdded: (added: number) => void;
+  added: number;
 }
 
-const DayNumber = ({ numberOfDays, initialPositionOfDay, currentDate, events }: Props) => {
+const DayNumber = ({ numberOfDays, initialPositionOfDay, currentDate, events, setAdded, added }: Props) => {
   const [showDayModal, setShowDayModal] = useState(0);
 
   const dayNumberOfWeek: number[] = Array.from(
@@ -64,6 +66,8 @@ const DayNumber = ({ numberOfDays, initialPositionOfDay, currentDate, events }: 
           day={showDayModal}
           setHideModal={() => setShowDayModal(0)}
           currentDate={currentDate}
+          setAdded={setAdded}
+          added={added}
         />
       )}
     </div>

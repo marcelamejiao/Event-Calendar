@@ -4,10 +4,12 @@ import {createEvent} from "../../services/events";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot, faTag }from '@fortawesome/free-solid-svg-icons';
 
-type IFormProps = {
+type Props = {
   setHideModal(showModal: boolean): void,
   currentDate: Date,
   day: number,
+  setAdded: (added: number) => void;
+  added: number;
 };
 
 export type IFormValues = {
@@ -18,7 +20,7 @@ export type IFormValues = {
   label: string
 };
 
-export default function AddEventForm({ setHideModal, currentDate, day }: IFormProps) {
+export default function AddEventForm({ setHideModal, currentDate, day, setAdded, added }: Props) {
   const [error, setError] = useState(false);
 
   const {
@@ -61,6 +63,7 @@ export default function AddEventForm({ setHideModal, currentDate, day }: IFormPr
       
       await createEvent(eventData);
       setHideModal(false);
+      setAdded(added + 1);
     } catch (e) {
       setError(true);
     }
