@@ -29,8 +29,8 @@ export default function AddEventForm({ setHideModal, currentDate, day, setAdded,
     formState: {errors},
   } = useForm<IFormValues>()
    
-  const onSubmit: SubmitHandler<IFormValues> = async (data, e) => {
-    e.preventDefault();
+  const onSubmit: SubmitHandler<IFormValues> = async (data: IFormValues, event?: React.BaseSyntheticEvent) => {
+    event?.preventDefault();
     try {
       if (error) {
         setError(false);
