@@ -7,7 +7,6 @@ import CalendarEvent from "../../models/event";
 
 type Props = {
   currentDate: Date,
-  day: number,
   setAdded: (added: number) => void;
   added: number;
   closeModal(): void;
@@ -22,9 +21,20 @@ export type IFormValues = {
   label: string
 };
 
-export default function EditEventForm({ closeModal, currentDate, day, setAdded, added, event: calendarEvent }: Props) {
+export default function EditEventForm({ closeModal, currentDate, setAdded, added, event: calendarEvent }: Props) {
   const [error, setError] = useState(false);
-console.log(calendarEvent.startDate.toTimeString())
+  console.log(calendarEvent.startDate.toTimeString());
+
+  // Convert the startDate formart to String
+  const startHours = calendarEvent.startDate.toTimeString().split(":")[0];
+  const startMinutes = calendarEvent.startDate.toTimeString().split(":")[1];
+  const eventStartTime = startHours + ":" + startMinutes; 
+  
+  // Convert the endDate formart to String
+  const endHours = calendarEvent.endDate.toTimeString().split(":")[0];
+  const endMinutes = calendarEvent.endDate.toTimeString().split(":")[1];
+  const eventEndTime = endHours + ":" + endMinutes; 
+
   const {
     register,
     handleSubmit,
@@ -48,7 +58,7 @@ console.log(calendarEvent.startDate.toTimeString())
       startEventDate.setMinutes(Number(data.startDate.split(":")[1]));
       startEventDate.setFullYear(actualYear);
       startEventDate.setMonth(actualMonth);
-      startEventDate.setDate(day);
+      startEventDate.setDate(calendarEvent.startDate.getDate());
 
       // Get the end date
       const endEventDate = new Date();
@@ -56,7 +66,7 @@ console.log(calendarEvent.startDate.toTimeString())
       endEventDate.setMinutes(Number(data.endDate.split(":")[1]));
       endEventDate.setFullYear(actualYear);
       endEventDate.setMonth(actualMonth);
-      endEventDate.setDate(day);
+      endEventDate.setDate(calendarEvent.startDate.getDate());
 
       // Convert time format to JSON format
       const eventData = {...data};
@@ -90,7 +100,7 @@ console.log(calendarEvent.startDate.toTimeString())
         <input
           type="time"
           {...register("startDate",
-            {required: true, value: calendarEvent.startDate.toTimeString()})}
+            {required: true, value: eventStartTime})}
           aria-invalid={errors.startDate ? "true" : "false"}
         />
         {errors.startDate?.type === "required" && (
@@ -102,7 +112,7 @@ console.log(calendarEvent.startDate.toTimeString())
         <input
           type="time"
           {...register("endDate",
-            {required: true})}
+            {required: true, value: eventEndTime})}
           aria-invalid={errors.endDate ? "true" : "false"}
         />
         {errors.endDate?.type === "required" && (
@@ -113,7 +123,7 @@ console.log(calendarEvent.startDate.toTimeString())
         <label><FontAwesomeIcon icon={faLocationDot}  className="px-2 text-teal-500"/></label>
         <input
           {...register("location",
-            {required: true})}
+            {required: true, value: calendarEvent.location})}
           aria-invalid={errors.location ? "true" : "false"}
           placeholder="Location"
         />
@@ -125,7 +135,7 @@ console.log(calendarEvent.startDate.toTimeString())
         <label><FontAwesomeIcon icon={faTag} className="px-2 text-teal-500"/></label>
         <input
           {...register("label",
-            {required: true})}
+            {required: true, value: calendarEvent.label})}
           aria-invalid={errors.label ? "true" : "false"}
           placeholder="Label"
         />

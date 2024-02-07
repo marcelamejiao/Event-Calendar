@@ -4,13 +4,12 @@ import EditEventForm from "../EditEventForm/EditEventForm";
 type modalProps = {
   closeModal(): void,
   currentDate: Date,
-  day: number;
   setAdded: (added: number) => void;
   added: number;
   event: CalendarEvent;
 };
 
-const EditEventModal = ({ closeModal, currentDate, day, setAdded, added, event }: modalProps) => {
+const EditEventModal = ({ closeModal, currentDate, setAdded, added, event }: modalProps) => {
   return (
     <div className="inset-0 fixed bg-gradient-to-br from-gray-900 z-10 flex justify-center items-center overflow-y-hidden">
       <div className="rounded-md flex flex-col drop-shadow-lg bg-zinc-50 items-center justify-center p-14">
@@ -20,7 +19,6 @@ const EditEventModal = ({ closeModal, currentDate, day, setAdded, added, event }
         <EditEventForm
           closeModal={closeModal}
           currentDate={currentDate}
-          day={day}
           setAdded={setAdded}
           added={added}
           event={event}

@@ -80,7 +80,6 @@ const DayNumber = ({ numberOfDays, initialPositionOfDay, currentDate, events, se
       {eventToBeEdited !== null && (
         <EditEventModal
           closeModal={() => setEventToBeEdited(null)}
-          day={showDayModal}
           currentDate={currentDate}
           setAdded={setAdded}
           added={added}
