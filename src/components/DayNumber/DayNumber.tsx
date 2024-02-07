@@ -1,8 +1,9 @@
 import { useState } from "react";
 import CalendarCell from "../CalendarCell/CalendarCell";
 import EventTag from "../EventTag/EventTag";
-import {Modal} from "../Modal/Modal";
+import AddEventModal from "../AddEventModal/AddEventModal";
 import CalendarEvent from "../../models/event";
+import EditEventModal from "../EditEventModal/EditEventModal";
 
 interface Props {
   numberOfDays: number;
@@ -15,6 +16,7 @@ interface Props {
 
 const DayNumber = ({ numberOfDays, initialPositionOfDay, currentDate, events, setAdded, added }: Props) => {
   const [showDayModal, setShowDayModal] = useState(0);
+  const [eventToBeEdited, setEventToBeEdited] = useState<CalendarEvent | null>(null);
 
   const dayNumberOfWeek: number[] = Array.from(
     {length: numberOfDays},
@@ -54,15 +56,19 @@ const DayNumber = ({ numberOfDays, initialPositionOfDay, currentDate, events, se
               onClick={() => setShowDayModal(day)}>+</button>
             </div>
             {getEventsByDay(day).map((event) => (
+              <div className="cursor-pointer" onClick={() => {
+                setEventToBeEdited(event);
+                }}>
                 <EventTag
-                event={event}
-              />
+                  event={event}
+                />
+              </div>
             ))}
         </CalendarCell>
       ))}
 
       {showDayModal !== 0 && (
-        <Modal
+        <AddEventModal
           day={showDayModal}
           setHideModal={() => setShowDayModal(0)}
           currentDate={currentDate}
@@ -70,6 +76,19 @@ const DayNumber = ({ numberOfDays, initialPositionOfDay, currentDate, events, se
           added={added}
         />
       )}
+
+      {eventToBeEdited !== null && (
+        <EditEventModal
+          closeModal={() => setEventToBeEdited(null)}
+          day={showDayModal}
+          currentDate={currentDate}
+          setAdded={setAdded}
+          added={added}
+          event={eventToBeEdited}
+        />
+      )}
+
+
     </div>
   )
 }
