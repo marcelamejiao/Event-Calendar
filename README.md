@@ -73,6 +73,7 @@ npm run dev
 
 * DONE: This project is the base of two following projects where the fronted and backend implementation were be develop.
 * DONE: The styling will be update once the following projects are finished.
+* Implement calendar events that span multiple days.
 * Mobile view.
 * Filter by Label.
 
