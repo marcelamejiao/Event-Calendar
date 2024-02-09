@@ -20,9 +20,11 @@ This project was designed to create a web application where a calendar is displa
 of days.
 
 * Each of the days cells is clickable.
-* When a user click on a chosen day, a modal appears (empty for now).
+* When a user click on a chosen day, a modal appears where you can add an event with a name, date, location and label.
 * The user is able to navigate between months, view the upcoming month and previous month.
 * The user is able to navigate between years, view the upcoming year and previous year.
+* The user can modify an event by clicking on the event.
+* The user can delete an event from the calendar.
 
 This application consists of a React Typescript frontend.
 
